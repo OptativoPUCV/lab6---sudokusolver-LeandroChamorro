@@ -74,8 +74,21 @@ int is_valid(Node* n){
             }
         }
     }
-
-
+ for (k = 0; k < 9; k++) {
+        int marks[10] = {0};
+        for (l = 0; l < 9; l++) {
+            int i = 3 * (k / 3) + (l / 3);
+            int j = 3 * (k % 3) + (l % 3);
+            if (n->sudo[i][j] != 0) {
+                if (marks[n->sudo[i][j]] == 1) {
+                    return 0; // Se repitió un número en la submatriz k
+                } else {
+                    marks[n->sudo[i][j]] = 1;
+                }
+            }
+        }
+    }
+    
     
     return 1;
 }
