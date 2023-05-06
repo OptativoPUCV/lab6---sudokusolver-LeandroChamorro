@@ -44,15 +44,11 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  for(int i = 0; i < 9 ; i++)
-  {
+  for (int i = 0; i < 9; i++){
     int num[10] = {0};
-    for (int j = 0; j < 9 ;j++)
-    {
-      if(n->sudo[i][j] != 0)
-      {
-        if(num[n->sudo[i][j]] == 1)
-        {
+    for (int j = 0; j < 9; j++){
+      if(n->sudo[i][j] != 0){
+        if(num[n->sudo[i][j]] == 1){
           return 0;
         }else{
           num[n->sudo[i][j]] = 1;
@@ -63,15 +59,15 @@ int is_valid(Node* n){
 
   for (int j = 0; j < 9; j++) {
     int num[10] = {0};
-      for (int i = 0; i < 9; i++) {
-        if (n->sudo[i][j] != 0) {
-          if (num[n->sudo[i][j]] == 1) {
-            return 0;
-          } else {
-            num[n->sudo[i][j]] = 1;
-          }
+    for (int i = 0; i < 9; i++) {
+      if (n->sudo[i][j] != 0) {
+        if (num[n->sudo[i][j]] == 1) {
+          return 0;
+        } else {
+          num[n->sudo[i][j]] = 1;
         }
       }
+    }
     }
   
   for (int k = 0; k < 9; k++) {
@@ -81,7 +77,7 @@ int is_valid(Node* n){
       int j = 3 * (k % 3) + (l % 3);
       if (n->sudo[i][j] != 0) {
         if (num[n->sudo[i][j]] == 1) {
-                    return 0; // Se repitió un número en la submatriz k
+                    return 0; 
                 } else {
                     num[n->sudo[i][j]] = 1;
                 }
@@ -104,7 +100,22 @@ List* get_adj_nodes(Node* n){
           for(int k = 1; k<= 9; k++)
             {
               Node* new_node = copy (n);
-              new_node->sudo[i][j] = k;
+              
+
+
+              
+   
+          for (int x = 0; x < 9; x++) {
+            for (int y = 0; y < 9; y++) {
+              new_node->sudo[x][y] = n->sudo[x][y];
+            }
+          }
+
+          new_node->sudo[i][j] = k;
+
+
+              
+              
               if (is_valid(new_node)) 
               {
                 pushBack(list, new_node);
@@ -134,30 +145,6 @@ int is_final(Node* n){
 }
 
 Node* DFS(Node* initial, int* cont){
-  Stack* S = createStack();
-  push(S, n);
-
-  while (!is_empty(S)) {
-    Node* current = top(S);
-    pop(S);
-    (*cont)++;
-
-    if (is_final(current)) {
-      return current;
-    }
-
-    List* adj_nodes = get_adj_nodes(current);
-    Node* adj_node = first(adj_nodes);
-
-    while (adj_node != NULL) {
-      push(S, adj_node);
-      adj_node = next(adj_nodes);
-    }
-
-    free(current);
-    clean(adj_nodes);
-  }
-
   return NULL;
 }
 
