@@ -62,3 +62,9 @@ sudoku.c:79:14: error: ‘l’ undeclared (first use in this function)
       |              ^
 Compilation failed
 28367be
+Sat 06 May 2023 10:58:48 PM UTC: 
+ sudoku.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+ tests:  5|3
+total_score: 35/70
+4179f5b
