@@ -28,3 +28,17 @@ Thu 04 May 2023 09:37:51 PM UTC:
  tests:  5|3
 total_score: 35/70
 dfee333
+Sat 06 May 2023 10:57:37 PM UTC: 
+ sudoku.c | 21 ++++++++++++++++-----
+ 1 file changed, 16 insertions(+), 5 deletions(-)
+In file included from test.c:5:
+sudoku.c: In function ‘get_adj_nodes’:
+sudoku.c:98:11: error: unknown type name ‘retrun’
+   98 |           retrun list;
+      |           ^~~~~~
+sudoku.c:98:18: error: unused variable ‘list’ [-Werror=unused-variable]
+   98 |           retrun list;
+      |                  ^~~~
+cc1: all warnings being treated as errors
+Compilation failed
+89331a7
