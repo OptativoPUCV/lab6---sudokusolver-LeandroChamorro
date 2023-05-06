@@ -86,3 +86,31 @@ Sat 06 May 2023 11:15:02 PM UTC:
  tests:  6|2
 total_score: 45/70
 a555b34
+Sat 06 May 2023 11:18:40 PM UTC: 
+ sudoku.c | 27 ++++++++++++++++++++++++++-
+ 1 file changed, 26 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:140:13: error: implicit declaration of function ‘isEmpty’; did you mean ‘is_empty’? [-Werror=implicit-function-declaration]
+  140 |     while (!isEmpty(stack)) {
+      |             ^~~~~~~
+      |             is_empty
+sudoku.c:141:25: error: void value not ignored as it ought to be
+  141 |         Node* current = pop(stack); // Sacar el primer nodo de la pila
+      |                         ^~~
+sudoku.c:151:26: error: implicit declaration of function ‘getFront’ [-Werror=implicit-function-declaration]
+  151 |         Node* adj_node = getFront(adj_nodes); // Obtener el primer nodo adyacente
+      |                          ^~~~~~~~
+sudoku.c:151:26: error: initialization of ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+sudoku.c:155:24: error: implicit declaration of function ‘getNext’ [-Werror=implicit-function-declaration]
+  155 |             adj_node = getNext(adj_nodes); // Obtener el siguiente nodo adyacente
+      |                        ^~~~~~~
+sudoku.c:155:22: error: assignment to ‘Node *’ from ‘int’ makes pointer from integer without a cast [-Werror=int-conversion]
+  155 |             adj_node = getNext(adj_nodes); // Obtener el siguiente nodo adyacente
+      |                      ^
+sudoku.c:159:9: error: implicit declaration of function ‘destroyList’ [-Werror=implicit-function-declaration]
+  159 |         destroyList(adj_nodes); // Liberar la memoria de la lista de nodos adyacentes
+      |         ^~~~~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+62906f5
