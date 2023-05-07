@@ -44,11 +44,15 @@ void print_node(Node* n){
 }
 
 int is_valid(Node* n){
-  for (int i = 0; i < 9; i++){
+  for (int i = 0; i < 9; i++)
+  {
     int num[10] = {0};
-    for (int j = 0; j < 9; j++){
-      if(n->sudo[i][j] != 0){
-        if(num[n->sudo[i][j]] == 1){
+    for (int j = 0; j < 9; j++)
+    {
+      if(n->sudo[i][j] != 0)
+      {
+        if(num[n->sudo[i][j]] == 1)
+        {
           return 0;
         }else{
           num[n->sudo[i][j]] = 1;
@@ -57,40 +61,49 @@ int is_valid(Node* n){
     }
   }
 
-  for (int j = 0; j < 9; j++) {
+  for (int j = 0; j < 9; j++) 
+  {
     int num[10] = {0};
-    for (int i = 0; i < 9; i++) {
-      if (n->sudo[i][j] != 0) {
-        if (num[n->sudo[i][j]] == 1) {
+    for (int i = 0; i < 9; i++) 
+    {
+      if (n->sudo[i][j] != 0) 
+      {
+        if (num[n->sudo[i][j]] == 1) 
+        {
           return 0;
         } else {
           num[n->sudo[i][j]] = 1;
         }
       }
     }
-    }
+  }
   
-  for (int k = 0; k < 9; k++) {
+  for (int k = 0; k < 9; k++) 
+  {
     int num[10] = {0};
-    for (int l = 0; l < 9; l++) {
+    for (int l = 0; l < 9; l++) 
+    {
       int i = 3 * (k / 3) + (l / 3);
       int j = 3 * (k % 3) + (l % 3);
-      if (n->sudo[i][j] != 0) {
-        if (num[n->sudo[i][j]] == 1) {
-                    return 0; 
-                } else {
-                    num[n->sudo[i][j]] = 1;
-                }
-            }
+      if (n->sudo[i][j] != 0) 
+      {
+        if (num[n->sudo[i][j]] == 1) 
+        {
+          return 0; 
+        } else {
+          num[n->sudo[i][j]] = 1;
         }
+      }
     }
+  }
     
-    return 1;
+  return 1;
 }
 
 
 List* get_adj_nodes(Node* n){
-List* list = createList();    
+  List* list = createList();    
+  
   for (int i = 0; i < 9; i++) 
   {
     for (int j = 0; j < 9; j++) 
@@ -154,8 +167,6 @@ Node* DFS(Node* initial, int* cont){
   }  
   return NULL;
 }
-
-
 
 
 /*
